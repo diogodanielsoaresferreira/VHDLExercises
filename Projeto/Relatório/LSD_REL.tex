@@ -1,0 +1,80 @@
+\documentclass[11pt,openany,twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[hmargin=4cm,vmargin=3.5cm,bmargin=3.5cm]{geometry}
+\usepackage[portuguese, english]{babel}
+\usepackage{graphicx}
+
+\title{\textbf{Relatório - Master Mind}}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{figure}
+\title{\textbf{Relatório - Master Mind}}
+\author{Turma P17 - Diogo Daniel Soares Ferreira e Eduardo Reis Silva\\\vspace{3cm}
+Universidade de Aveiro - Laboratórios de Sistemas Digitais}
+\date{\today}
+ \includegraphics[scale=1.5]{ua_logo.png}
+\end{figure}
+\end{titlepage}
+\renewcommand\thesection{}
+
+\selectlanguage{portuguese}
+\maketitle
+\tableofcontents
+
+\section{Especificações do Sistema}
+
+Para este sistema, é pedido que o sistema gere um número aleatório de quatro algarismos decimais(de 0 a 9), não o mostrando ao utilizador, que o deve tentar adivinhar. Através dos botões disponíveis na FPGA (\textit{keys}), o utilizador deve tentar adivinhar o número gerado, incrementando ou subtraindo o valor de cada algarismo, mostrado através dos \textit{displays} hexadecimais. Quando estiver certo da sua aposta, carrega noutro botão disponível para confirmar a sua escolha. 
+
+O número máximo de tentativas será 99, o que será mostrado também nos \textit{displays} hexadecimais quando o utilizador acertar no número gerado ou quando chegar ao número máximo de tentativas. Em cada escolha, caso o algarismo escolhido esteja igual ao algarismo no mesmo local do número gerado, o número de dígitos certos incrementa um valor, e o de dígitos errados subtrai também um valor. Estes dois sinais também serão mostrados nos \textit{displays}, para o utilizador saber quando acerta em mais um número, ou quando erra. Quando acerta em todos os números, os \textit{displays} que mostram os algarismos inseridos devem piscar a uma frequência de 2 Hz.
+
+\section{Arquitetura detalhada do sistema}
+
+Tal como demonstrado no diagrama de blocos do anexo, o sistema possui quatro entradas, três nos botões(\textit{Keys}) e um no interruptor(\textit{SW}) e oito saídas (todas através dos displays hexadecimais). Os blocos preenchidos com a mesma cor são semelhantes (não necessariamente iguais). Analisando o diagrama começando pela esquerda, podemos ver ligado a cada botão de entrada, um \textit{Debouncer}, para evitar possíveis conflitos mecânicos de leituras múltiplas. Também podemos ver um \textit{clock}, que pode ser interpretado como um sinal de entrada, mas que na prática já vem implementado na \textit{FPGA}. Esse \textit{clock} , ligado a dois \textit{Frequency Dividers} (a \textit{FPGA} tem um \textit{clock} que executa a uma frequência de 50 Mhz, o que é demasiado rápido algumas entidades), irá sincronizar todo o sistema. Também o \textit{reset}, implementado no interruptor \textit{(SW(0))} quando pressionado, irá levar o sistema à sua posição inicial.
+
+Mais acima, temos uma máquina de estados, \textit{Random Number}, com duas saídas. A saída \textit{count}, deverá indicar ao contador (acima de \textit{Random Number}) quando contar. Quando a entrada \textit{stop\_signal} for ativada, o \textit{count} fica desativo até o sinal de \textit{Reset} estar ativo. Quando é ativada a entrada \textit{Reset}, para além de count ficar ativo novamente, se não estiver, a saída \textit{ResetOut} irá também ficar ativa, indicando ao contador para reiniciar a contagem. Esse contador (a vermelho), deverá ser instanciado com o número máximo sendo 9999, voltando depois a zero e reiniciando a contagem. Também deverá ter como entradas \textit{enable}, \textit{clock} e \textit{reset}, para assegurar o seu bom funcionamento.
+
+A entrada \textit{Key(0)} deverá estar ligada a um contador de 0 a 3, sendo incrementado sempre que \textit{Key(0)} for ativo. A saída do contador deverá ligar-se a um \textit{Demultiplexer}, que sinalizará a saída onde o utilizador pretende alterar o dígito. 
+
+Para cada dígito, teremos contadores de 0 a 9, com \textit{reset} sendo \textit{Key(3)}, o botão de confirmação do número desejado. Para alterarmos o número, podemos somar uma unidade, no botão \textit{Key(1)}, ou subtrair, no botão \textit{Key(2)}. Logo, os contadores têm entradas para somar ou subtrair a contagem atual. Essas entradas estão ligadas com uma porta \textit{and}, entre as entradas \textit{Key(1)} e \textit{Key(2)}, e as saídas do \textit{Demultiplexer}, para garantir que apenas somamos ou subtraímos um dígito de cada vez.
+
+Ligados à saída dos contadores teremos um \textit{Register}, sendo o \textit{clock} o botão \textit{Key(3)} e sendo \textit{reset} o interruptor \textit{SW(0)}. Assim, sempre que o utilizador confirmar a sua escolha, o número atual escolhido vai ser a saída do \textit{Register}. Caso contrário, o número anterior permanecerá na sua saída.
+
+A entidade \textit{Compare} (a cor-de-rosa) irá comparar bit a bit as suas entradas, que neste caso serão as saídas do \textit{Register} e as saídas do \textit{Counter} que gera o número aleatório. A entidade tem como saída quatro sinais ("1" se cada \textit{bit} dos números \textit{"Random"} e do utilizador são iguais, "0" se contrário), entre os dois vetores de entrada. Também há um contador ligado ao \textit{Key(3)}, para contar o número de tentativas que o utilizador introduz.
+
+A entidade \textit{checkEnd} irá receber como entrada o número de tentativas do utilizador, o \textit{clock} e o botão de \textit{reset (SW(0))}. A entidade deverá enviar o número de dígitos certos e o número de dígitos errados. Caso o utilizador acerte no número antes das 99 tentativas a entidade deverá mostrar o valor de dígitos corretos sendo 4, o de errados 0, e deverá ativar a entrada \textit{isBlink}, que fará piscar a saída, indicando o número correto. Também deverá mostrar o número de tentativas. Caso o utilizador chegue às 99 tentativas, a entidade apenas deverá mostrar o número de tentativas igual a 99 e esperar pelo \textit{reset}, para o sistema ser reiniciado.
+
+Finalmente, temos os módulos \textit{Blink} e \textit{Binary to Decimal}. Os primeiros fazem piscar o seu resultado a uma frequência recebida pelo \textit{clock}. Caso o \textit{enable} esteja desligado, apenas mostram o resultado sem piscar O \textit{enable} é um \textit{or} entre o \textit{isblink}, que indica se o utilizador acertou, e a entrada correspondente do \textit{demultiplexer}, para piscar sempre que estiver no modo \textit{set}. A entidade \textit{Binary to Decimal} converte a sua entrada binária para ser mostrada corretamente nos \textit{displays} hexadecimais.
+
+\textbf{Nota: O diagrama de blocos encontra-se anexado no final deste relatório.}
+
+\section{Arquitetura faseada do desenvolvimento e validação}
+
+No nosso planeamento, os módulos precisam de estar todos individualmente feitos até dia 8 de Maio. Desde esse dia, até ao dia 10, procederemos com todos os testes e validações necessários para simular o funcionamento do sistema. No máximo, dia 15 de Maio, o sistema tem de estar completamente funcional, com todos os testes realizados e a funcionar corretamente na \textit{FPGA}, para podermos ter tempo para nos preparar caso algo corra fora do previsto.
+
+\section{Divisão do trabalho entre os dois elementos do grupo}
+
+Para não estar a beneficiar ninguém, ou a prejudicar, decidimos dividir o trabalho de forma aleatória. O Eduardo Silva vai ficar com as entidades:
+\begin{itemize}
+\item \textit{Debouncer}
+\item \textit{RandomNumber}
+\item \textit{Counter99,Counter3,Counter9999}
+\item \textit{Demultiplexer}
+\end{itemize}
+
+O Diogo Ferreira vai ficar com as entidades:
+\begin{itemize}
+\item \textit{Shift\_Register}
+\item \textit{Compare}
+\item \textit{checkEnd}
+\item \textit{Blink}
+\item \textit{Binary to Decimal}
+\end{itemize}
+
+De notar que a maior parte destas entidades já foram construídas, ou parcialmente construídas em aulas, pelo que só serão necessários alguns ajustes de forma a se adaptar ao sistema. Cada aluno deverá realizar as suas \textit{TestBenches} às entidades nucleares de forma a certificar-se de que estão a funcionar corretamente. Não deverão apenas fazer \textit{TestBenches} à entidade criada, mas também às ligações entre as entidades, de forma a garantir a sanidade do sistema.
+
+\section{Manual do utilizador}
+O utilizador tem à sua disposição cinco botões onde pode modificar o comportamento do circuito. No primeiro botão(KEY(0)), pode
+selecionar o dígito que deseja modificar, para com o os dois botões seguintes incrementar(KEY(1)) ou diminuir(KEY(2)) o valor desse dígito, de 0 até 9. Quando estiver confortável com a sua escolha, o utilizador pode premir o botão KEY(3) para confirmar a sua escolha e verificar quantos dígitos acertou nos \textit{displays} hexadecimais. Caso queira voltar ao início , gerando um novo número aleatório e repondo as tentativas para zero, pode ligar o interruptor SW(0) e carregar no botão \textit{KEY(3)}, repondo o sistema no seu estado inicial.
+\end{document}

@@ -1,0 +1,101 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity checkEnd is
+
+	port(	try0	:	in std_logic_vector(3 downto 0);
+			try1	:	in std_logic_vector(3 downto 0);
+			compare0:in std_logic;
+			compare1:in std_logic;
+			compare2:in std_logic;
+			compare3:in std_logic;
+			clock	:	in std_logic;
+			reset	:	in std_logic;
+			isBlink:	out std_logic;
+			isend	:	out std_logic;
+			p		:	out std_logic_vector(3 downto 0);
+			n		:	out std_logic_vector(3 downto 0);
+			t1		:	out std_logic_vector(3 downto 0);
+			t0		:	out std_logic_vector(3 downto 0));
+
+end checkEnd;
+
+architecture Behavioral of checkEnd is
+
+	signal s_p, s_n	:	std_logic_vector(3 downto 0);
+
+begin
+
+	compare_proc:process(clock)
+	begin
+		if(falling_edge(clock)) then
+			isblink <= '0';
+			t1 <= "1111";	-- Estado "nulo"
+			t0 <= "1111";	-- Estado "nulo"
+			isend <= '0';
+			if(reset='1') then
+				s_p <= "0000";
+				s_n <= "0000";
+			elsif(try1 = "1001" and try0 ="1001") then
+				s_p <= s_p;
+				s_n <= s_n;
+				isend <= '1';
+				isBlink <= '0';
+				t1 <= try1;
+				t0 <= try0;
+			elsif (compare0='1') then
+				if(compare1='1') then
+					if(compare2='1') then
+						if(compare3='1') then
+							isblink <= '1';
+							t1 <= try1;
+							t0 <= try0;
+							s_p <= "0100";
+							s_n <= "0000";
+						else
+							s_p <= "0011";
+							s_n <= "0001";
+						end if;
+					else
+						s_p <= "0010";
+						s_n <= "0010";
+					end if;
+				else
+					s_p <= "0001";
+					s_n <= "0011";
+				end if;
+			elsif(compare1='1') then
+				if(compare2='1') then
+					if(compare3='1') then
+						s_p <= "0011";
+						s_n <= "0001";
+					else
+						s_p <= "0010";
+						s_n <= "0010";
+					end if;
+				else
+					s_p <= "0001";
+					s_n <= "0011";
+				end if;
+			elsif(compare2='1') then 
+				if(compare3='1') then
+					s_p <= "0010";
+					s_n <= "0010";
+				else
+					s_p <= "0001";
+					s_n <= "0011";
+				end if;
+			elsif(compare3='1')then
+				s_p <= "0001";
+				s_n <= "0011";
+			else
+				s_p <= "0000";
+				s_n <= "0100";
+			end if;
+		end if;
+	end process;
+
+	p <= s_p;
+	n <= s_n;
+	
+end Behavioral;

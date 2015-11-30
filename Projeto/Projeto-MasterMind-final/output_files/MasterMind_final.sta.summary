@@ -1,0 +1,245 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -6.544
+TNS   : -291.767
+
+Type  : Slow 1200mV 85C Model Setup 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : -4.013
+TNS   : -42.415
+
+Type  : Slow 1200mV 85C Model Setup 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : -3.773
+TNS   : -81.394
+
+Type  : Slow 1200mV 85C Model Setup 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : -3.752
+TNS   : -21.040
+
+Type  : Slow 1200mV 85C Model Setup 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -1.930
+TNS   : -25.483
+
+Type  : Slow 1200mV 85C Model Setup 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : -0.977
+TNS   : -6.843
+
+Type  : Slow 1200mV 85C Model Hold 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : -0.449
+TNS   : -2.183
+
+Type  : Slow 1200mV 85C Model Hold 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : 0.071
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : 0.218
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : 0.410
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : 0.441
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -4.319
+TNS   : -79.433
+
+Type  : Slow 1200mV 85C Model Removal 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : 0.951
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -131.500
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : -1.285
+TNS   : -38.550
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : -1.285
+TNS   : -35.980
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -1.285
+TNS   : -25.700
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : 0.362
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -5.882
+TNS   : -256.408
+
+Type  : Slow 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : -3.630
+TNS   : -39.076
+
+Type  : Slow 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : -3.415
+TNS   : -73.626
+
+Type  : Slow 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : -3.287
+TNS   : -16.848
+
+Type  : Slow 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -1.611
+TNS   : -20.882
+
+Type  : Slow 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : -0.837
+TNS   : -5.050
+
+Type  : Slow 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : -0.470
+TNS   : -2.255
+
+Type  : Slow 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : 0.042
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.338
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : 0.366
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : 0.464
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -3.846
+TNS   : -70.800
+
+Type  : Slow 1200mV 0C Model Removal 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : 0.806
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -131.500
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : -1.285
+TNS   : -38.550
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : -1.285
+TNS   : -35.980
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -1.285
+TNS   : -25.700
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : 0.321
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : 0.396
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -2.791
+TNS   : -96.083
+
+Type  : Fast 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : -1.755
+TNS   : -8.983
+
+Type  : Fast 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : -1.468
+TNS   : -3.438
+
+Type  : Fast 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : -1.381
+TNS   : -28.627
+
+Type  : Fast 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -0.842
+TNS   : -8.183
+
+Type  : Fast 1200mV 0C Model Setup 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : -0.163
+TNS   : -0.424
+
+Type  : Fast 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : -0.196
+TNS   : -0.901
+
+Type  : Fast 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : 0.021
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : 0.045
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : 0.106
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.174
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : 0.190
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -1.722
+TNS   : -31.040
+
+Type  : Fast 1200mV 0C Model Removal 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : 0.548
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -132.099
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|clkOut'
+Slack : -1.000
+TNS   : -30.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|Debouncer:deb_3|s_dirty_In[5]'
+Slack : -1.000
+TNS   : -28.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|clkOut'
+Slack : -1.000
+TNS   : -20.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|Counter4:Counter4|s_count[0]'
+Slack : 0.291
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0'
+Slack : 0.333
+TNS   : 0.000
+
+------------------------------------------------------------

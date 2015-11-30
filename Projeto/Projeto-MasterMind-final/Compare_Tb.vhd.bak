@@ -1,0 +1,51 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity Compare_Tb is
+end Compare_Tb;
+
+architecture Stimulus of Compare_Tb is
+
+	signal num1, num2,num3, num4,num5, num6,num7, num8		:	std_logic_vector(3 downto 0);
+	signal s_compare1, s_compare2, s_compare3, s_compare0	:	std_logic;
+
+begin
+
+	uut	:	entity work.Compare(Behavioral)
+					port map(randomnum0=> num1,
+								usernum0	=> num2,
+								randomnum1=> num3,
+								usernum1	=> num4,
+								randomnum2=> num5,
+								usernum2	=> num6,
+								randomnum3=> num7,
+								usernum3	=> num8,
+								compare0 => s_compare0,
+								compare1 => s_compare1,
+								compare2 => s_compare2,
+								compare3 => s_compare3);
+								
+	comb_proc	:	process
+	begin
+	
+		num1 <= "1010";
+		num2 <= "0101";
+		num3 <= "1010";
+		num4 <= "0101";
+		num5 <= "1010";
+		num6 <= "0101";
+		num7 <= "1010";
+		num8 <= "0101";
+		wait for 10 ns;
+		num1 <= "0011";
+		num2 <= "0011";
+		num3 <= "0011";
+		num4 <= "0011";
+		num5 <= "0011";
+		num6 <= "0011";
+		num7 <= "0011";
+		num8 <= "0011";
+		wait for 10 ns;
+	
+	end process;
+end Stimulus;

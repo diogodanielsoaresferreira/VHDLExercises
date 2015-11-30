@@ -1,0 +1,726 @@
+Analysis & Synthesis report for MasterMind_final
+Tue May 26 09:44:16 2015
+Quartus II 64-Bit Version 14.1.1 Build 190 01/19/2015 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |MasterMind|MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState
+  9. State Machine - |MasterMind|MasterMind_Str:MasterMind_Core|Compare2:compare|NState
+ 10. State Machine - |MasterMind|MasterMind_Str:MasterMind_Core|RandomNumber:Rand_Num|pState
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1
+ 16. Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2
+ 17. Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_0
+ 18. Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_1
+ 19. Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_2
+ 20. Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_3
+ 21. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec7"
+ 22. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec6"
+ 23. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec5"
+ 24. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec4"
+ 25. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec3"
+ 26. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec2"
+ 27. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec1"
+ 28. Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec0"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 26 09:44:16 2015      ;
+; Quartus II 64-Bit Version          ; 14.1.1 Build 190 01/19/2015 SJ Web Edition ;
+; Revision Name                      ; MasterMind_final                           ;
+; Top-level Entity Name              ; MasterMind                                 ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 580                                        ;
+;     Total combinational functions  ; 551                                        ;
+;     Dedicated logic registers      ; 178                                        ;
+; Total registers                    ; 178                                        ;
+; Total pins                         ; 62                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; MasterMind         ; MasterMind_final   ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; Register4.vhd                    ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Register4.vhd      ;         ;
+; RandomNumber.vhd                 ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/RandomNumber.vhd   ;         ;
+; MasterMind_Str.vhd               ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd ;         ;
+; MasterMind.vhd                   ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind.vhd     ;         ;
+; FreqDivider.vhd                  ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/FreqDivider.vhd    ;         ;
+; Demultiplexer.vhd                ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Demultiplexer.vhd  ;         ;
+; Debouncer.vhd                    ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Debouncer.vhd      ;         ;
+; Counter9999.vhd                  ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Counter9999.vhd    ;         ;
+; Counter99.vhd                    ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Counter99.vhd      ;         ;
+; Counter9.vhd                     ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Counter9.vhd       ;         ;
+; Counter4.vhd                     ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Counter4.vhd       ;         ;
+; Compare2.vhd                     ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Compare2.vhd       ;         ;
+; checkEnd.vhd                     ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/checkEnd.vhd       ;         ;
+; Blink.vhd                        ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Blink.vhd          ;         ;
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File  ; F:/LSD-VHDL/Projeto-MasterMind-final/Bin7SegDecoder.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 580            ;
+;                                             ;                ;
+; Total combinational functions               ; 551            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 264            ;
+;     -- 3 input functions                    ; 134            ;
+;     -- <=2 input functions                  ; 153            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 480            ;
+;     -- arithmetic mode                      ; 71             ;
+;                                             ;                ;
+; Total registers                             ; 178            ;
+;     -- Dedicated logic registers            ; 178            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 62             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 100            ;
+; Total fan-out                               ; 2321           ;
+; Average fan-out                             ; 2.72           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                    ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                   ; Library Name ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
+; |MasterMind                         ; 551 (0)           ; 178 (0)      ; 0           ; 0            ; 0       ; 0         ; 62   ; 0            ; |MasterMind                                                           ; work         ;
+;    |MasterMind_Str:MasterMind_Core| ; 551 (13)          ; 178 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core                            ; work         ;
+;       |Bin7SegDecoder:bin7segdec0|  ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec0 ; work         ;
+;       |Bin7SegDecoder:bin7segdec1|  ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec1 ; work         ;
+;       |Bin7SegDecoder:bin7segdec2|  ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec2 ; work         ;
+;       |Bin7SegDecoder:bin7segdec3|  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec3 ; work         ;
+;       |Bin7SegDecoder:bin7segdec4|  ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec4 ; work         ;
+;       |Bin7SegDecoder:bin7segdec5|  ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec5 ; work         ;
+;       |Bin7SegDecoder:bin7segdec6|  ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec6 ; work         ;
+;       |Bin7SegDecoder:bin7segdec7|  ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec7 ; work         ;
+;       |Blink:blink0|                ; 17 (17)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Blink:blink0               ; work         ;
+;       |Blink:blink1|                ; 17 (17)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Blink:blink1               ; work         ;
+;       |Blink:blink2|                ; 17 (17)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Blink:blink2               ; work         ;
+;       |Blink:blink3|                ; 17 (17)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Blink:blink3               ; work         ;
+;       |Compare2:compare|            ; 134 (134)         ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Compare2:compare           ; work         ;
+;       |Counter4:Counter4|           ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter4:Counter4          ; work         ;
+;       |Counter9999:Counter9999|     ; 32 (32)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9999:Counter9999    ; work         ;
+;       |Counter99:counter99|         ; 19 (19)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter99:counter99        ; work         ;
+;       |Counter9:Counter9_0|         ; 11 (11)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_0        ; work         ;
+;       |Counter9:Counter9_1|         ; 11 (11)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_1        ; work         ;
+;       |Counter9:Counter9_2|         ; 11 (11)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_2        ; work         ;
+;       |Counter9:Counter9_3|         ; 11 (11)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_3        ; work         ;
+;       |Debouncer:deb_0|             ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Debouncer:deb_0            ; work         ;
+;       |Debouncer:deb_1|             ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Debouncer:deb_1            ; work         ;
+;       |Debouncer:deb_2|             ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Debouncer:deb_2            ; work         ;
+;       |Debouncer:deb_3|             ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Debouncer:deb_3            ; work         ;
+;       |FreqDivider:freq_div1|       ; 56 (56)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1      ; work         ;
+;       |FreqDivider:freq_div2|       ; 55 (55)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2      ; work         ;
+;       |RandomNumber:Rand_Num|       ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|RandomNumber:Rand_Num      ; work         ;
+;       |Register4:register_c|        ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|Register4:register_c       ; work         ;
+;       |checkEnd:checkEnd|           ; 32 (32)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MasterMind|MasterMind_Str:MasterMind_Core|checkEnd:checkEnd          ; work         ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |MasterMind|MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState ;
++-----------+-----------+-----------+-----------+-------------------------------------+
+; Name      ; pState.S3 ; pState.S2 ; pState.S1 ; pState.S0                           ;
++-----------+-----------+-----------+-----------+-------------------------------------+
+; pState.S0 ; 0         ; 0         ; 0         ; 0                                   ;
+; pState.S1 ; 0         ; 0         ; 1         ; 1                                   ;
+; pState.S2 ; 0         ; 1         ; 0         ; 1                                   ;
+; pState.S3 ; 1         ; 0         ; 0         ; 1                                   ;
++-----------+-----------+-----------+-----------+-------------------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |MasterMind|MasterMind_Str:MasterMind_Core|Compare2:compare|NState ;
++-----------+-----------+-----------+------------------------------------------------+
+; Name      ; NState.S2 ; NState.S1 ; NState.S0                                      ;
++-----------+-----------+-----------+------------------------------------------------+
+; NState.S0 ; 0         ; 0         ; 0                                              ;
+; NState.S1 ; 0         ; 1         ; 1                                              ;
+; NState.S2 ; 1         ; 0         ; 1                                              ;
++-----------+-----------+-----------+------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------+
+; State Machine - |MasterMind|MasterMind_Str:MasterMind_Core|RandomNumber:Rand_Num|pState ;
++-----------+-----------+-----------+-----------------------------------------------------+
+; Name      ; pState.S2 ; pState.S1 ; pState.S0                                           ;
++-----------+-----------+-----------+-----------------------------------------------------+
+; pState.S0 ; 0         ; 0         ; 0                                                   ;
+; pState.S1 ; 0         ; 1         ; 1                                                   ;
+; pState.S2 ; 1         ; 0         ; 1                                                   ;
++-----------+-----------+-----------+-----------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                           ;
++---------------------------------------------------------+------------------------------------------------------------+------------------------+
+; Latch Name                                              ; Latch Enable Signal                                        ; Free of Timing Hazards ;
++---------------------------------------------------------+------------------------------------------------------------+------------------------+
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_p[3] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_p[1] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_p[0] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_p[2] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_n[1] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_n[2] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_n[0] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|s_n[3] ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|pState.S0 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink3|s_nin[3]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink3|s_nin[1]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink3|s_nin[0]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink3|s_nin[2]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink2|s_nin[3]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink2|s_nin[1]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink2|s_nin[0]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink2|s_nin[2]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink1|s_nin[3]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink1|s_nin[1]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink1|s_nin[0]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink1|s_nin[2]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink0|s_nin[3]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink0|s_nin[1]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink0|s_nin[0]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; MasterMind_Str:MasterMind_Core|Blink:blink0|s_nin[2]    ; MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector2 ; yes                    ;
+; Number of user-specified and inferred latches = 24      ;                                                            ;                        ;
++---------------------------------------------------------+------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                ;
++-------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; Register name                                                     ; Reason for Removal                                                            ;
++-------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|s_counter[0] ; Merged with MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|s_counter[0] ;
+; MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|s_counter[1] ; Merged with MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|s_counter[1] ;
+; Total Number of Removed Registers = 2                             ;                                                                               ;
++-------------------------------------------------------------------+-------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 178   ;
+; Number of registers using Synchronous Clear  ; 2     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 40    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 52    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2|s_counter[21] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1|s_counter[17] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9999:Counter9999|s_count0[3] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter99:counter99|s_count0[3]     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9999:Counter9999|s_count1[3] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter99:counter99|s_count1[3]     ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9999:Counter9999|s_count2[3] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_3|s_count[0]      ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_2|s_count[2]      ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_1|s_count[1]      ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9:Counter9_0|s_count[3]      ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |MasterMind|MasterMind_Str:MasterMind_Core|Counter9999:Counter9999|s_count3[2] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |MasterMind|MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector8         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |MasterMind|MasterMind_Str:MasterMind_Core|Compare2:compare|err                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |MasterMind|MasterMind_Str:MasterMind_Core|Compare2:compare|err                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |MasterMind|MasterMind_Str:MasterMind_Core|Compare2:compare|err                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |MasterMind|MasterMind_Str:MasterMind_Core|checkEnd:checkEnd|Selector9         ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |MasterMind|MasterMind_Str:MasterMind_Core|Compare2:compare|err                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1 ;
++----------------+----------+-----------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                  ;
++----------------+----------+-----------------------------------------------------------------------+
+; k              ; 25000000 ; Signed Integer                                                        ;
++----------------+----------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2 ;
++----------------+---------+------------------------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                                   ;
++----------------+---------+------------------------------------------------------------------------+
+; k              ; 5000000 ; Signed Integer                                                         ;
++----------------+---------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_0 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_1 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_2 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MasterMind_Str:MasterMind_Core|Debouncer:deb_3 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec7"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec6"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec5"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec4"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec3"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable ; Input  ; Info     ; Stuck at VCC                                                                        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec2"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable ; Input  ; Info     ; Stuck at VCC                                                                        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec1"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable ; Input  ; Info     ; Stuck at VCC                                                                        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec0"                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; ledout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable ; Input  ; Info     ; Stuck at VCC                                                                        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 62                          ;
+; cycloneiii_ff         ; 178                         ;
+;     CLR               ; 32                          ;
+;     ENA               ; 44                          ;
+;     ENA CLR           ; 8                           ;
+;     SCLR              ; 2                           ;
+;     plain             ; 92                          ;
+; cycloneiii_lcell_comb ; 555                         ;
+;     arith             ; 71                          ;
+;         2 data inputs ; 62                          ;
+;         3 data inputs ; 9                           ;
+;     normal            ; 484                         ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 125                         ;
+;         4 data inputs ; 264                         ;
+;                       ;                             ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 4.45                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 14.1.1 Build 190 01/19/2015 SJ Web Edition
+    Info: Processing started: Tue May 26 09:43:54 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MasterMind_final -c MasterMind_final
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file register4.vhd
+    Info (12022): Found design unit 1: Register4-Behavioral
+    Info (12023): Found entity 1: Register4
+Info (12021): Found 2 design units, including 1 entities, in source file randomnumberw_counter_tb.vhd
+    Info (12022): Found design unit 1: RandomNumberw_counter_Tb-Stimulus
+    Info (12023): Found entity 1: RandomNumberw_counter_Tb
+Info (12021): Found 2 design units, including 1 entities, in source file randomnumbertb.vhd
+    Info (12022): Found design unit 1: RandomNumberTb-Stimulus
+    Info (12023): Found entity 1: RandomNumberTb
+Info (12021): Found 2 design units, including 1 entities, in source file randomnumber.vhd
+    Info (12022): Found design unit 1: RandomNumber-Behavioral
+    Info (12023): Found entity 1: RandomNumber
+Info (12021): Found 2 design units, including 1 entities, in source file mastermind_str.vhd
+    Info (12022): Found design unit 1: MasterMind_Str-Structural
+    Info (12023): Found entity 1: MasterMind_Str
+Info (12021): Found 2 design units, including 1 entities, in source file mastermind.vhd
+    Info (12022): Found design unit 1: MasterMind-Shell
+    Info (12023): Found entity 1: MasterMind
+Info (12021): Found 2 design units, including 1 entities, in source file freqdivider.vhd
+    Info (12022): Found design unit 1: FreqDivider-Behavioral
+    Info (12023): Found entity 1: FreqDivider
+Info (12021): Found 2 design units, including 1 entities, in source file demultiplexer.vhd
+    Info (12022): Found design unit 1: Demultiplexer-Behavioral
+    Info (12023): Found entity 1: Demultiplexer
+Info (12021): Found 2 design units, including 1 entities, in source file debouncer.vhd
+    Info (12022): Found design unit 1: Debouncer-Behavioral
+    Info (12023): Found entity 1: Debouncer
+Info (12021): Found 2 design units, including 1 entities, in source file counteranddem_tb.vhd
+    Info (12022): Found design unit 1: counteranddem_tb-Stimulus
+    Info (12023): Found entity 1: counteranddem_tb
+Info (12021): Found 2 design units, including 1 entities, in source file counter9999tb.vhd
+    Info (12022): Found design unit 1: Counter9999Tb-Stimulus
+    Info (12023): Found entity 1: Counter9999Tb
+Info (12021): Found 2 design units, including 1 entities, in source file counter9999.vhd
+    Info (12022): Found design unit 1: Counter9999-Behavioral
+    Info (12023): Found entity 1: Counter9999
+Info (12021): Found 2 design units, including 1 entities, in source file counter99.vhd
+    Info (12022): Found design unit 1: Counter99-Behavioral
+    Info (12023): Found entity 1: Counter99
+Info (12021): Found 2 design units, including 1 entities, in source file counter9.vhd
+    Info (12022): Found design unit 1: Counter9-Behavioral
+    Info (12023): Found entity 1: Counter9
+Info (12021): Found 2 design units, including 1 entities, in source file counter4tb.vhd
+    Info (12022): Found design unit 1: Counter4Tb-Stimulus
+    Info (12023): Found entity 1: Counter4Tb
+Info (12021): Found 2 design units, including 1 entities, in source file counter4.vhd
+    Info (12022): Found design unit 1: Counter4-Behavioral
+    Info (12023): Found entity 1: Counter4
+Info (12021): Found 2 design units, including 1 entities, in source file compare2.vhd
+    Info (12022): Found design unit 1: Compare2-Behavioral
+    Info (12023): Found entity 1: Compare2
+Info (12021): Found 2 design units, including 1 entities, in source file compare_tb.vhd
+    Info (12022): Found design unit 1: Compare_Tb-Stimulus
+    Info (12023): Found entity 1: Compare_Tb
+Info (12021): Found 2 design units, including 1 entities, in source file clkdividern.vhd
+    Info (12022): Found design unit 1: ClkDividerN-Behavioral
+    Info (12023): Found entity 1: ClkDividerN
+Info (12021): Found 2 design units, including 1 entities, in source file checkendtb.vhd
+    Info (12022): Found design unit 1: checkEndTb-Stimulus
+    Info (12023): Found entity 1: checkEndTb
+Info (12021): Found 2 design units, including 1 entities, in source file checkend.vhd
+    Info (12022): Found design unit 1: checkEnd-Behavioral
+    Info (12023): Found entity 1: checkEnd
+Info (12021): Found 2 design units, including 1 entities, in source file blinktb.vhd
+    Info (12022): Found design unit 1: BlinkTb-Stimulus
+    Info (12023): Found entity 1: BlinkTb
+Info (12021): Found 2 design units, including 1 entities, in source file blink.vhd
+    Info (12022): Found design unit 1: Blink-Behavioral
+    Info (12023): Found entity 1: Blink
+Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral
+    Info (12023): Found entity 1: Bin7SegDecoder
+Info (12127): Elaborating entity "MasterMind" for the top level hierarchy
+Info (12129): Elaborating entity "MasterMind_Str" using architecture "A:structural" for hierarchy "MasterMind_Str:MasterMind_Core"
+Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|FreqDivider:freq_div1"
+Info (12129): Elaborating entity "FreqDivider" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|FreqDivider:freq_div2"
+Info (12129): Elaborating entity "Debouncer" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Debouncer:deb_0"
+Warning (10492): VHDL Process Statement warning at Debouncer.vhd(35): signal "s_dirty_In" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12129): Elaborating entity "RandomNumber" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|RandomNumber:Rand_Num"
+Info (12129): Elaborating entity "Counter9999" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Counter9999:Counter9999"
+Info (12129): Elaborating entity "Counter4" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Counter4:Counter4"
+Info (12129): Elaborating entity "Demultiplexer" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Demultiplexer:Demultiplexer"
+Info (12129): Elaborating entity "Counter9" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Counter9:Counter9_0"
+Info (12129): Elaborating entity "Register4" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Register4:register_c"
+Info (12129): Elaborating entity "Counter99" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Counter99:counter99"
+Info (12129): Elaborating entity "Compare2" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Compare2:compare"
+Info (12129): Elaborating entity "checkEnd" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|checkEnd:checkEnd"
+Warning (10492): VHDL Process Statement warning at checkEnd.vhd(66): signal "final_try1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at checkEnd.vhd(67): signal "final_try0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at checkEnd.vhd(89): signal "s_p" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at checkEnd.vhd(52): inferring latch(es) for signal or variable "s_p", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at checkEnd.vhd(52): inferring latch(es) for signal or variable "s_n", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "s_n[0]" at checkEnd.vhd(52)
+Info (10041): Inferred latch for "s_n[1]" at checkEnd.vhd(52)
+Info (10041): Inferred latch for "s_n[2]" at checkEnd.vhd(52)
+Info (10041): Inferred latch for "s_n[3]" at checkEnd.vhd(52)
+Info (10041): Inferred latch for "s_p[0]" at checkEnd.vhd(52)
+Info (10041): Inferred latch for "s_p[1]" at checkEnd.vhd(52)
+Info (10041): Inferred latch for "s_p[2]" at checkEnd.vhd(52)
+Info (10041): Inferred latch for "s_p[3]" at checkEnd.vhd(52)
+Info (12129): Elaborating entity "Blink" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Blink:blink0"
+Warning (10492): VHDL Process Statement warning at Blink.vhd(42): signal "s_nin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Blink.vhd(45): signal "numberIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at Blink.vhd(28): inferring latch(es) for signal or variable "s_nin", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "s_nin[0]" at Blink.vhd(28)
+Info (10041): Inferred latch for "s_nin[1]" at Blink.vhd(28)
+Info (10041): Inferred latch for "s_nin[2]" at Blink.vhd(28)
+Info (10041): Inferred latch for "s_nin[3]" at Blink.vhd(28)
+Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "MasterMind_Str:MasterMind_Core|Bin7SegDecoder:bin7segdec0"
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[3]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[3]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[3]~1"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[1]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[1]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[1]~5"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[0]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[0]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[0]~9"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[2]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[2]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink3|numberOut[2]~13"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[3]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[3]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[3]~1"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[1]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[1]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[1]~5"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[0]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[0]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[0]~9"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[2]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[2]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink2|numberOut[2]~13"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[3]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[3]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[3]~1"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[1]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[1]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[1]~5"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[0]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[0]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[0]~9"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[2]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[2]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink1|numberOut[2]~13"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[3]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[3]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[3]~1"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[1]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[1]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[1]~5"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[0]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[0]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[0]~9"
+    Warning (13310): Register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[2]" is converted into an equivalent circuit using register "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[2]~_emulated" and latch "MasterMind_Str:MasterMind_Core|Blink:blink0|numberOut[2]~13"
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 642 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 580 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 697 megabytes
+    Info: Processing ended: Tue May 26 09:44:16 2015
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:45
+
+

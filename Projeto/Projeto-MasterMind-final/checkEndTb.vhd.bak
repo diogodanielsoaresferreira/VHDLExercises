@@ -1,0 +1,63 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity checkEndTb is
+end checkEndTb;
+
+architecture Stimulus of checkEndTb is
+
+	signal s_try0, s_try1, s_p, s_n, s_t1, s_t0						:	std_logic_vector(3 downto 0);
+	signal s_c1, s_c2, s_c3, s_c0, s_clock, s_reset, s_isBlink	:	std_logic;
+
+begin
+
+	uut	:	entity work.checkEnd(Behavioral)
+					port map(try0	=> s_try0,
+								try1	=>	s_try1,
+								p		=> s_p, 
+								n		=> s_n, 
+								t1		=> s_t1,
+								t0		=> s_t0,
+								compare0 => s_c0,
+								compare1 => s_c1,
+								compare2 => s_c2,
+								compare3 => s_c3,
+								clock	=> s_clock,
+								reset	=> s_reset,
+								isBlink	=>	s_isBlink);
+
+	comb_proc:process
+	begin
+		s_c0 <= '1';
+		s_c1 <= '0';
+		s_c2 <= '0';
+		s_c3 <= '1';
+		s_try1 <= "0000";
+		s_try0 <= "0001";
+		s_clock <= '1';
+		wait for 20 ns;
+		
+		s_clock <= '0';
+		wait for 20 ns;
+		
+		s_c0 <= '1';
+		s_c1 <= '1';
+		s_c2 <= '1';
+		s_c3 <= '1';
+		s_try1 <= "0000";
+		s_try0 <= "0001";
+		s_clock <= '1';
+		wait for 20 ns;
+		
+		s_clock <= '0';
+		wait for 20 ns;
+		
+		s_reset <= '1';
+		wait for 20 ns;
+		
+		s_clock <= '0';
+		wait for 20 ns;
+	
+	end process;
+								
+end Stimulus;

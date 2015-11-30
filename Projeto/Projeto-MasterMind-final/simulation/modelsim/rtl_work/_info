@@ -1,0 +1,188 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dF:/LSD-VHDL/Projeto-MasterMind-final/simulation/modelsim
+Echeckend
+Z1 w1432550790
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEnd.vhd
+Z5 FC:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEnd.vhd
+l0
+L8
+VQCH_MIGS@dU2Z2o<>N@1G1
+!s100 iUnb9VIUPoXBKHhT0=_QG3
+Z6 OV;C;10.3c;59
+32
+Z7 !s110 1432580049
+!i10b 1
+Z8 !s108 1432580049.549000
+Z9 !s90 -reportprogress|300|-work|work|C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEnd.vhd|
+Z10 !s107 C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEnd.vhd|
+!i113 1
+Z11 o-work work
+Z12 tExplicit 1
+Abehavioral
+R2
+R3
+Z13 DEx4 work 8 checkend 0 22 QCH_MIGS@dU2Z2o<>N@1G1
+l35
+L28
+VSC8zbNf8OWBPKRJ<cfcQz0
+!s100 6]ah=WGMU9PH3eU_WAY@V1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Echeckendtb
+Z14 w1431073702
+R2
+R3
+R0
+Z15 8C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEndTb.vhd
+Z16 FC:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEndTb.vhd
+l0
+L8
+VVlXR?1D1?IA>kRI7Q]^UK3
+!s100 i6?Yg3UIUjGnQBzS^o1IJ0
+R6
+32
+Z17 !s110 1432580053
+!i10b 1
+Z18 !s108 1432580053.668000
+Z19 !s90 -reportprogress|300|-work|work|C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEndTb.vhd|
+Z20 !s107 C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEndTb.vhd|
+!i113 1
+R11
+R12
+Astimulus
+R13
+R2
+R3
+DEx4 work 10 checkendtb 0 22 VlXR?1D1?IA>kRI7Q]^UK3
+l19
+L13
+VB3aaUd7AH:a7M?jzk8obY2
+!s100 >H@0^RVggYLIFjNAASTfV0
+R6
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R11
+R12
+Emastermind_str
+w1432550357
+R2
+R3
+R0
+8F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd
+FF:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd
+l0
+L8
+Vz1]gTo]RC1Cl7a`5nNeSi0
+!s100 ]oF0:3D]14B``Taa]AGlS1
+R6
+31
+!s110 1432580007
+!i10b 1
+!s108 1432580007.267000
+!s90 -reportprogress|300|-93|-work|work|F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd|
+!s107 F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd|
+!i113 1
+Z21 o-93 -work work
+R12
+Erandomnumber
+Z22 w1430323215
+R2
+R3
+R0
+Z23 8F:/LSD-VHDL/Projeto-MasterMind-final/RandomNumber.vhd
+Z24 FF:/LSD-VHDL/Projeto-MasterMind-final/RandomNumber.vhd
+l0
+L8
+Ve4<;GJ:fG?l34G5e;06Y00
+!s100 N2EM_DOF<UKnb1bzg?flX1
+R6
+31
+Z25 !s110 1432580006
+!i10b 1
+Z26 !s108 1432580006.637000
+Z27 !s90 -reportprogress|300|-93|-work|work|F:/LSD-VHDL/Projeto-MasterMind-final/RandomNumber.vhd|
+Z28 !s107 F:/LSD-VHDL/Projeto-MasterMind-final/RandomNumber.vhd|
+!i113 1
+R21
+R12
+Abehavioral
+R2
+R3
+DEx4 work 12 randomnumber 0 22 e4<;GJ:fG?l34G5e;06Y00
+l26
+L21
+V990=g>zJHnOF_7FoSOKe80
+!s100 P60>>b0Xjd7`[mR>N7E5a1
+R6
+31
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 1
+R21
+R12
+Eregister4
+Z29 w1430323119
+R2
+R3
+R0
+Z30 8F:/LSD-VHDL/Projeto-MasterMind-final/Register4.vhd
+Z31 FF:/LSD-VHDL/Projeto-MasterMind-final/Register4.vhd
+l0
+L8
+V:^<MUKW0ZaB2QHjjLz0_=1
+!s100 6fHa0SVbFRRinBCCeBXN`3
+R6
+31
+Z32 !s110 1432580004
+!i10b 1
+Z33 !s108 1432580004.358000
+Z34 !s90 -reportprogress|300|-93|-work|work|F:/LSD-VHDL/Projeto-MasterMind-final/Register4.vhd|
+Z35 !s107 F:/LSD-VHDL/Projeto-MasterMind-final/Register4.vhd|
+!i113 1
+R21
+R12
+Abehavioral
+R2
+R3
+DEx4 work 9 register4 0 22 :^<MUKW0ZaB2QHjjLz0_=1
+l25
+L24
+VBjKl>6zTU=EWgBKIXN;eX2
+!s100 8b_1VIV?;AzKLG=MQfhQe1
+R6
+31
+R32
+!i10b 1
+R33
+R34
+R35
+!i113 1
+R21
+R12

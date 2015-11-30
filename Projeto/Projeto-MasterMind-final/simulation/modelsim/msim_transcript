@@ -1,0 +1,405 @@
+# Reading E:/Altera/14.1/modelsim_ase/tcl/vsim/pref.tcl
+# do MasterMind_final_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim PE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet work rtl_work 
+# Copying E:/Altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied E:/Altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {F:/LSD-VHDL/Projeto-MasterMind-final/Register4.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 19:53:23 on May 25,2015
+# vcom -reportprogress 300 -93 -work work F:/LSD-VHDL/Projeto-MasterMind-final/Register4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Register4
+# -- Compiling architecture Behavioral of Register4
+# End time: 19:53:25 on May 25,2015, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {F:/LSD-VHDL/Projeto-MasterMind-final/RandomNumber.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 19:53:26 on May 25,2015
+# vcom -reportprogress 300 -93 -work work F:/LSD-VHDL/Projeto-MasterMind-final/RandomNumber.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RandomNumber
+# -- Compiling architecture Behavioral of RandomNumber
+# End time: 19:53:27 on May 25,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 19:53:27 on May 25,2015
+# vcom -reportprogress 300 -93 -work work F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MasterMind_Str
+# -- Compiling architecture Structural of MasterMind_Str
+# ** Error: (vcom-11) Could not find work.freqdivider.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(51): (vcom-1195) Cannot find expanded name "work.FreqDivider".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(51): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.freqdivider.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(56): (vcom-1195) Cannot find expanded name "work.FreqDivider".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(56): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.debouncer.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(61): (vcom-1195) Cannot find expanded name "work.Debouncer".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(61): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.debouncer.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(67): (vcom-1195) Cannot find expanded name "work.Debouncer".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(67): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.debouncer.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(74): (vcom-1195) Cannot find expanded name "work.Debouncer".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(74): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.debouncer.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(81): (vcom-1195) Cannot find expanded name "work.Debouncer".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(81): Unknown expanded name.
+# -- Loading entity RandomNumber
+# ** Error: (vcom-11) Could not find work.counter9999.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(94): (vcom-1195) Cannot find expanded name "work.Counter9999".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(94): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.counter4.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(103): (vcom-1195) Cannot find expanded name "work.Counter4".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(103): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.demultiplexer.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(109): (vcom-1195) Cannot find expanded name "work.Demultiplexer".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(109): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.counter9.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(124): (vcom-1195) Cannot find expanded name "work.Counter9".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(124): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.counter9.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(131): (vcom-1195) Cannot find expanded name "work.Counter9".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(131): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.counter9.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(138): (vcom-1195) Cannot find expanded name "work.Counter9".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(138): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.counter9.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(145): (vcom-1195) Cannot find expanded name "work.Counter9".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(145): Unknown expanded name.
+# -- Loading entity Register4
+# ** Error: (vcom-11) Could not find work.counter99.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(164): (vcom-1195) Cannot find expanded name "work.Counter99".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(164): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.compare2.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(171): (vcom-1195) Cannot find expanded name "work.Compare2".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(171): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.checkend.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(186): (vcom-1195) Cannot find expanded name "work.checkEnd".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(186): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.blink.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(208): (vcom-1195) Cannot find expanded name "work.Blink".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(208): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.blink.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(215): (vcom-1195) Cannot find expanded name "work.Blink".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(215): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.blink.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(222): (vcom-1195) Cannot find expanded name "work.Blink".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(222): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.blink.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(229): (vcom-1195) Cannot find expanded name "work.Blink".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(229): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(236): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(236): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(241): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(241): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(246): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(246): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(251): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(251): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(256): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(256): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(261): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(261): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(266): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(266): Unknown expanded name.
+# ** Error: (vcom-11) Could not find work.bin7segdecoder.
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(271): (vcom-1195) Cannot find expanded name "work.Bin7SegDecoder".
+# 
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(271): Unknown expanded name.
+# ** Error: F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd(276): VHDL Compiler exiting
+# End time: 19:53:27 on May 25,2015, Elapsed time: 0:00:00
+# Errors: 85, Warnings: 0
+# ** Error: E:/Altera/14.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./MasterMind_final_run_msim_rtl_vhdl.do line 10
+# E:/Altera/14.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {F:/LSD-VHDL/Projeto-MasterMind-final/MasterMind_Str.vhd}"
+vcom -reportprogress 300 -work work {C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEnd.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 19:54:09 on May 25,2015
+# vcom -reportprogress 300 -work work C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEnd.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity checkEnd
+# -- Compiling architecture Behavioral of checkEnd
+# End time: 19:54:10 on May 25,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEndTb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 19:54:13 on May 25,2015
+# vcom -reportprogress 300 -work work C:/Users/Diogo Ferreira/Desktop/LSD/Projeto/checkEndTb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity checkEndTb
+# -- Compiling architecture Stimulus of checkEndTb
+# -- Loading entity checkEnd
+# End time: 19:54:14 on May 25,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim work.checkendtb
+# vsim -gui "+altera" -l msim_transcript -do "MasterMind_final_run_msim_rtl_vhdl.do" 
+# Start time: 19:54:19 on May 25,2015
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.checkendtb(stimulus)
+# Loading work.checkend(behavioral)
+add wave -position end  sim:/checkendtb/s_try0
+add wave -position end  sim:/checkendtb/s_try1
+add wave -position end  sim:/checkendtb/s_p
+add wave -position end  sim:/checkendtb/s_n
+add wave -position end  sim:/checkendtb/s_t1
+add wave -position end  sim:/checkendtb/s_t0
+add wave -position end  sim:/checkendtb/s_clock
+add wave -position end  sim:/checkendtb/s_reset
+add wave -position end  sim:/checkendtb/s_isBlink
+add wave -position end  sim:/checkendtb/s_erra
+add wave -position end  sim:/checkendtb/s_cert
+add wave -position end  sim:/checkendtb/uut/pState
+add wave -position end  sim:/checkendtb/uut/nState
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave -position end  sim:/checkendtb/uut/b_load
+add wave -position end  sim:/checkendtb/uut/load
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 19:55:49 on May 25,2015, Elapsed time: 0:01:30
+# Errors: 0, Warnings: 0

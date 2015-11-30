@@ -1,0 +1,99 @@
+\documentclass[11pt,openany,twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[hmargin=4cm,vmargin=3.5cm,bmargin=3.5cm]{geometry}
+\usepackage[portuguese, english]{babel}
+\usepackage{graphicx}
+
+\title{\textbf{Relatório final - Master Mind}}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{figure}
+\title{\textbf{Relatório - Master Mind}}
+\author{Turma P17 - Diogo Daniel Soares Ferreira e Eduardo Reis Silva\\\vspace{3cm}
+Universidade de Aveiro - Laboratórios de Sistemas Digitais}
+\date{\today}
+ \includegraphics[scale=1.5]{ua_logo.png}
+\end{figure}
+\end{titlepage}
+\renewcommand\thesection{}
+
+\selectlanguage{portuguese}
+\maketitle
+\tableofcontents
+
+
+\section{Introdução}
+
+\paragraph{ } O objetivo deste projeto seria o de programar a \textit{FPGA} de forma a que fosse possível interagir de forma a jogar o jogo \textit{Master Mind}. O sistema deveria gerar automaticamente um número aleatório com quatro dígitos. O utilizador deveria selecionar um número, também com quatro dígitos entre 0 e 9, para tentar adivinhar o número aleatório gerado pela máquina. Caso atingisse as 99 tentativas sem acertar, a \textit{FPGA} deveria mostrar o número de tentativas e impedir o utilizador de inserir mais números. Caso contrário, o número de tentativas só seria mostrado quando o utilizador acertasse no número gerado, fazendo piscar a uma frequência de 2 Hz o número inserido. Finalmente, para auxiliar o utilizador, dois \textit{displays} hexadecimais devem mostrar o número de dígitos certos na posição errada e o número de dígitos certos na posição certa.
+
+
+\section{Manual do utilizador}
+
+\paragraph{ } O utilizador deverá interagir com a \textit{FPGA} através dos quatro botões (\textit{KEY0} para alterar o dígito escolhido, \textit{KEY1} para incrementar o dígito, \textit{KEY2} para decrementar e \textit{KEY3} para confirmar o número introduzido) e através de um interruptor (\textit{SW0}) deverá poder reiniciar todo o sistema. Os oito \textit{displays} hexadecimais deverão mostrar, da esquerda para a direita (de HEX7 a HEX0), o número de dígitos certos na posição certa (HEX7), o número de dígitos certos na posição errada (HEX6), o número de tentativas (HEX5 e HEX4) e o número inserido pelo utilizador (HEX3, HEX2, HEX1 e HEX0).
+
+
+\section{Arquitetura}
+
+\paragraph{ } O diagrama de blocos do sistema, por ser demasiado extenso, encontra-se no anexo (ficheiro "Anexo 1 - Diagrama de Blocos.jpeg"). Seguidamente iremos explicar passo a passo a função de cada entidade descrita nesse diagrama, da esquerda para a direita.
+
+O sistema tem como entradas três botões (no diagrama \textit{Key(3), Key(2), Key(1) e Key(0)}), um interruptor (\textit{reset}) e um relógio (\textit{clock}). Ligado a cada botão está um \textit{debouncer}, para evitar possíveis transições indesejadas. 
+
+Ligado ao relógio estão dois divisores de frequência, necessários para entidades seguintes. Assim, para além do relógio de frequência 50 \textit{Mhz}, temos também relógios a 100 \textit{Hz} e a 2 \textit{Hz}.
+
+Acima (a cor-de-laranja), podemos ver a entidade \textit{RandomNumber}, destinada a gerir o \textit{enable} de um contador para gerar o número aleatório (acima, a vermelho). As saídas deste contador estão ligadas à entidade \textit{compare}, que comparará este número com o introduzido pelo utilizador.
+
+A saída do primeiro \textit{debouncer}, ligado ao botão \textit{Key(3)}, serve para confirmar a entrada de um novo número pelo utilizador (\textit{confirm}). Os dois botões seguintes servem para incrementar ou decrementar um certo dígito (\textit{inc, dim}), escolhido pelo botão \textit{Key(0)(set)}.
+
+O sinal \textit{confirm} irá ser ligado a um contador de 0 a 99, para contar o número de tentativas introduzidas, que estará ligado à entidade \textit{CheckEnd}, que falaremos mais à frente. Os sinais \textit{dim} e \textit{inc} estão ligado a contadores de 0 a 9, com \textit{enable} e \textit{up/down}, capazes de somar ou decrementar certo dígito. O sinal \textit{set} irá estar ligado a um contador de 0 a 3, que por sua vez estará ligado a um \textit{Demultiplexer}, para controlar o \textit{enable} de cada contador. Assim, podemos ter a certeza que apenas um dígito está a ser alterado de cada vez. As saídas do \textit{Demultiplexer} estão ainda ligadas ao \textit{enable} da entidade \textit{blink}, que fará piscar o dígito em causa, para o utilizador saber qual dígito está a alterar.
+
+A saída de cada contador está ligada a um \textit{register}, que tem como \textit{clock} o sinal \textit{confirm}. Assim, quando o utilizador confirmar o número que deseja, passa para a saída do \textit{register}. Caso contrário, mantém-se o anterior. A saída dos contadores também está ligada à entidade \textit{blink}, para o utilizador poder ver o número que está a introduzir. Os sinais vindos do \textit{register} são também ligados ao módulo \textit{compare}, que comparará os números vindos do utilizador e o número aleatório, e dirá quantos dígitos há nas posições certas e quantos dígitos certos há, nas posições erradas.
+
+A entidade \textit{CheckEnd} irá receber o número de dígitos certos nas posições certas e erradas e o número de tentativas. Se o número de tentativas for 99, deverá deixar de mostrar o número do utilizador, e o número de dígitos certos e errados mostrado deverá ser 0. Caso o número de dígitos nas posições certas seja 4, deverá mostrar o número de tentativas e o número do utilizador deve piscar. Em qualquer um destes cenários, o sistema só pode sair deste estado com o \textit{reset}. Caso nenhum destes cenários aconteça, deverão ser mostrados o número de dígitos nas posições certas e erradas e o número que o utilizador está a selecionar. Finalmente, as últimas entidades (a amarelo) são conversores de binário para código \textit{BCD} de 7 segmentos.
+
+\section{Implementação}
+
+\paragraph{ } Nesta secção, iremos explicar o que faz cada entidade e como, entidade a entidade.
+
+Optámos por criar uma entidade \textit{Debouncer} ao invés de usar a fornecida pelo professor nos guiões. O nosso \textit{Debouncer} é um \textit{shift-register} com \textit{reset} assíncrono. Após cinco pulsos de relógio, se não houver nenhuma variação do sinal de entrada, o \textit{debouncer} irá ter saída '1'. Caso contrário, irá ter a sua saída a '0'.
+
+Os divisores de frequência são os fornecidos no guião da aula prática. A cada pulso de \textit{clock}, um contador soma um valor a um sinal. Caso esse valor seja menor do que metade de um número n, a sua saída será 0. Caso seja igual ou maior, será '1'. Assim, podemos dividir uma frequência recebida por qualquer número N inserido.
+
+A entidade \textit{RandomNumber} é uma máquina de estados com três estados (ver "Anexo 2 - RandomNumber (Máquina de Estados)") com três estados. No primeiro estado (S0), a saída count fica a '1' e \textit{resetOut} a '0'. Depois, caso \textit{stop\_signal} seja '1', o estado seguinte vai ser S1, caso \textit{reset} seja '1', o estado seguinte vai ser S2. No estado S1, \textit{resetOut} fica a '0' e \textit{stop\_signal} a '1'. Caso \textit{reset} seja '1', o estado seguinte será S2. Finalmente, para o estado S2, \textit{resetOut} irá ser '1' e \textit{count} irá ser '0'. 
+
+O \textit{resetOut} irá ligar-se ao \textit{reset} do contador de 0 a 9999, e o \textit{count} irá ser o \textit{enable} do contador. O contador somará sempre que o seu \textit{enable} for '1'. Quando o \textit{reset} for '1', deverá voltar a '0'.
+
+Ligado ao último \textit{debouncer}, temos o sinal \textit{set}, ligado a um contador simples de 0 a 3. Esse contador está ligado a um \textit{Demultiplexer}, para selecionar apenas uma saída a '1'. Cada saída do \textit{Demultiplexer} está ligada a contadores de 0 a 9, com entradas para incrementar e decrementar, e \textit{enable}.
+
+No diagrama de blocos a verde, o \textit{Register}, tem como \textit{clock} o sinal \textit{set}, e \textit{reset} assíncrono (interruptor SW0). A entidade só deverá passar para a sua saída a entrada nos flancos ativos do \textit{clock}. Em baixo, podemos ver também um contador similar aos apresentados anteriormente.
+
+A entidade \textit{blink} tem como entrada um \textit{clock}, uma entrada de \textit{load}, um \textit{enable} e um número. Caso o \textit{enable} seja '1', no flanco ativo do relógio, o módulo irá piscar um número guardado num sinal interno \textit{s\_nin}, à frequência do \textit{clock}. Caso \textit{enable} seja '0', a entidade põe na sua saída o sinal \textit{s\_nin}, sem piscar. Assincronamente, sempre que a entrada \textit{load} é '1', \textit{s\_nin} toma o valor do número de entrada. A entidade \textit{Binary to Decimal} irá simplesmente receber um número e converter em BCD de sete segmentos. Cada entidade \textit{Binary to Decimal} irá estar ligada a um \textit{display} hexadecimal.
+
+A entidade \textit{Compare} é uma máquina de estados (imagem em "Anexo 4 - Compare (Máquina de Estados)"). No primeiro estado, inicializa todas as variáveis e sinais a "0000". No estado seguinte, compara cada dígito da palavra gerada com o seu respetivo dígito da palavra inserida pelo utilizador. Se forem iguais, a variável soma '1' ao seu valor. Há também duas variáveis que servem de \textit{flag}, para saber se aquele dígito já foi comparado ou não. Se forem todos os dígitos certos, vai para o estado seguinte. Caso contrário, irá comparar dígito a dígito se há algum dígito igual na palavra correspondente onde o \textit{flag} está a '0', ou seja, não foi comparada. O estado seguinte é um estado que não faz atribuições. Se nalgum estado, o \textit{reset} for '1', volta para o seu estado inicial.
+
+A entidade \textit{CheckEnd} é também uma máquina de estados (a sua imagem pode ser encontrada em "Anexo 3 - CheckEnd (Máquina de Estados)"), com quatro estados. No estado inicial, fazem-se atribuições essenciais para inicializar o diagrama de estados e os seus sinais. Depois, passamos para o último estado, onde irá não irá piscar o número do utilizador, e também não irá mostrar o número de tentativas. Caso o utilizador acerte nos quatro dígitos, passa para segundo o estado. Caso o utilizador chegue às 99 tentativas, passa para o terceiro estado.
+
+No segundo estado, o utilizador acertou no número gerado. Logo, irá ativar a saída \textit{blink}, que fará piscar o dígito. Irá fixar os números inseridos pelo utilizador, sem os poder alterar, e irá também mostrar o número de tentativas. No terceiro estado, o utilizador chegou às 99 tentativas. Logo, irá mostrar o número de tentativas e não irá mostrar os dígitos inseridos pelo utilizador. Irá também forçar as saídas que apontam para o número de dígitos certos no local certo e no local errado a zero.
+
+\section{Validação}
+
+\paragraph{ } Ao longo do projeto, realizámos \textit{Testbenches} às entidades que considerámos válidas testar, devido à sua complexidade ou a possíveis erros de interligação com outras entidades. Todas as \textit{Testbenches} acabaram por ser válidas, e por estar de acordo com o esperado.
+
+Começámos pela \textit{Testbench} aplicada à máquina de estados \textit{RandomNumber}, para simular o seu comportamento quando os seus sinais de entrada variavam. Depois, aplicámos outra \textit{Testbench} à entidade \textit{Counter9999}, para garantirmos a sua sanidade e a validade da contagem. Como não tivemos a certeza de que o comportamento conjunto fosse o correto, também criámos uma \textit{Testbench} simulando as duas entidades ligadas, tal como no diagrama de blocos.
+
+Seguidamente, devido a alguns erros aquando da execução do projeto, criámos uma \textit{Testbench} para os contadores de 0 a 3 (\textit{counter4}) e outra para a sua interligação com o \textit{Demultiplexer}.
+
+Como tivemos bastantes dificuldades em completar a entidade \textit{compare}, também criámos uma \textit{Testbench} para ela, que usámos bastante para garantir a sanidade da entidade.
+
+Finalmente, também criámos \textit{Testbenches} para as entidades \textit{CheckEnd} e \textit{Blink}.
+
+\section{Conclusão}
+
+\paragraph{ } O projeto realizado cumpriu o definido anteriormente. Sentimos que foi um projeto que nos fez aprender bastante sobre sistemas digitais e programação para \textit{FPGA's}. Escolhemos este projeto porque queríamos um desafio, queríamos construir algo que nos divertisse, que tivesse alguma funcionalidade interessante. O nosso objetivo foi completamente alcançado. De tal maneira que, depois de feito, passámos largos minutos apenas a "jogar" no que tínhamos construído.
+
+A maior dificuldade sentida foi na construção da entidade com a máquina de estados \textit{compare}. Despendemos bastante tempo, primeiro a planear o que tínhamos de construir, depois na sua programação, de tal maneira que tivemos, a certa altura, que construir a entidade a partir do zero.
+
+Conseguimos com que o projeto fosse feito de forma faseada, cumprindo assim as datas impostas.
+
+\end{document}

@@ -1,0 +1,52 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity Compare is
+
+	port(	randomnum0	:	in std_logic_vector(3 downto 0);
+			usernum0		:	in std_logic_vector(3 downto 0);
+			randomnum1	:	in std_logic_vector(3 downto 0);
+			usernum1		:	in std_logic_vector(3 downto 0);
+			randomnum2	:	in std_logic_vector(3 downto 0);
+			usernum2		:	in std_logic_vector(3 downto 0);
+			randomnum3	:	in std_logic_vector(3 downto 0);
+			usernum3		:	in std_logic_vector(3 downto 0);
+			compare0		:	out std_logic;
+			compare1		:	out std_logic;
+			compare2		:	out std_logic;
+			compare3		:	out std_logic);
+
+end Compare;
+
+architecture Behavioral of Compare is
+
+
+
+begin
+
+	process(randomnum0, usernum0,randomnum1, usernum1,randomnum2, usernum2,randomnum3, usernum3)
+	begin
+		if(randomnum0=usernum0) then
+			compare0 <= '1';
+		else
+			compare0 <= '0';
+		end if;
+		if(randomnum1=usernum1) then
+			compare1 <= '1';
+		else
+			compare1 <= '0';
+		end if;
+		if(randomnum2=usernum2) then
+			compare2 <= '1';
+		else
+			compare2 <= '0';
+		end if;
+		if(randomnum3=usernum3) then
+			compare3 <= '1';
+		else
+			compare3 <= '0';
+		end if;
+	
+	end process;
+
+end Behavioral;
